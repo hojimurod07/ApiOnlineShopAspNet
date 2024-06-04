@@ -2,16 +2,20 @@
 using Aplication.DTOs.FoodDtos;
 using Aplication.Interfaces;
 using Data.Interfaces;
+using Domain.Entities;
+using FluentValidation;
 
 namespace Aplication.Services
 {
-    public class FoodService(IUnitOfWork unitOfWork) : IFoodService
+    public class FoodService(IUnitOfWork unitOfWork,IValidator<Food> validator) : IFoodService
     {
         private readonly IUnitOfWork _unitOfWork = unitOfWork;
+        private readonly IValidator<Food> _validator = validator;
 
-        public Task CreteAsync(AddFoodDto addFoodDto)
+        public async Task CreteAsync(AddFoodDto addFoodDto)
         {
-            throw new NotImplementedException();
+            var result = await _validator.ValidateAsync(addFoodDto);
+            
         }
 
         public Task DeleteAsync(int id)

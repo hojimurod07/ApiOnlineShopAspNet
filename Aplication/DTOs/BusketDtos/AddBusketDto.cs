@@ -6,6 +6,6 @@ namespace Aplication.DTOs.BusketDtos
     {
         public int UserId {  get; set; }    
         public User User { get; set; }
-        public double TotalPrce { get;set } 
+        public double TotalPrce { get; set; } 
     }
 }

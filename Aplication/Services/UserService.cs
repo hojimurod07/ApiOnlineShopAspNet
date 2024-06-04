@@ -4,6 +4,7 @@ using Aplication.Interfaces;
 using Data.Interfaces;
 using System.Net;
 namespace Aplication.Services
+   
 {
     public class UserService(IUnitOfWork unitOfWork) : IUserService
     {
